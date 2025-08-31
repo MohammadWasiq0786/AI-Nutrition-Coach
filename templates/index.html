@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Nutrition Coach</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>🥗 AI Nutrition Coach</h1>
+            <button id="export-btn" class="btn-outline">📤 Export PDF/CSV</button>
+        </header>
+
+        <main class="form-card">
+            <form method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
+                <div class="form-group">
+                    <label for="user_query">🔍 Your Question</label>
+                    <input type="text" name="user_query" id="user_query" placeholder="e.g., How many calories in this meal?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">🖼️ Upload Food Image</label>
+                    <input type="file" name="file" id="file" accept="image/*" required onchange="displayUploadedImage(event)">
+                    <div id="uploaded-image" class="image-preview"></div>
+                </div>
+
+                <button type="submit" class="btn-primary">🚀 Analyze Calories</button>
+            </form>
+
+            <div id="loading-message" class="loading">⏳ Processing... please wait</div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div id="toast" class="toast">
+                        {% for category, message in messages %}
+                            <p class="{{ category }}">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% if response %}
+                <div class="result-card">
+                    <h2>📊 Calorie Breakdown</h2>
+                    <div class="response-content">{{ response|safe }}</div>
+                </div>
+            {% endif %}
+        </main>
+
+        <footer class="app-footer">
+            © 2050 AI Nutrition Coach • Built with 💚 and Fiber
+        </footer>
+    </div>
+</body>
+</html>

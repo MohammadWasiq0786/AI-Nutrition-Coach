@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    padding: 30px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 720px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.app-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="file"] {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+.btn-primary {
+    background: #00c9a7;
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #00b192;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #00c9a7;
+    color: #00c9a7;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: #00c9a7;
+    color: #fff;
+}
+
+.image-preview img {
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 2px solid #fff;
+}
+
+#loading-message {
+    display: none;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 14px;
+    margin-top: 25px;
+}
+
+.response-content {
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+
+.toast {
+    margin-top: 20px;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.app-footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0.7;
+}
